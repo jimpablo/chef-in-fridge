@@ -3,7 +3,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 // Initialize Gemini API
 // In AI Studio it uses process.env.GEMINI_API_KEY
 // For Vercel/Vite deployment it uses import.meta.env.VITE_GEMINI_API_KEY
-const apiKey = typeof process !== 'undefined' && process.env ? process.env.GEMINI_API_KEY : import.meta.env.VITE_GEMINI_API_KEY;
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 if (!apiKey) {
   console.error("Gemini API Key is missing! Please set VITE_GEMINI_API_KEY in your environment variables.");
