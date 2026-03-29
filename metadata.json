@@ -1,0 +1,5 @@
+{
+  "name": "冰箱盲盒大厨",
+  "description": "输入你的冰箱剩余食材，或者抽取盲盒，让人工智能大厨为你量身定制创意菜谱！",
+  "requestFramePermissions": []
+}
