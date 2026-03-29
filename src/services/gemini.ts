@@ -48,7 +48,7 @@ export async function generateMealPlan(
   请以JSON格式返回这顿饭的安排。`;
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-1.5-flash-latest",
     contents: prompt,
     config: {
       responseMimeType: "application/json",
