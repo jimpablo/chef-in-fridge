@@ -115,8 +115,8 @@ export default function App() {
         setError("未能从图片中识别出食材，请换一张图片试试。");
       }
     } catch (err) {
-      console.error(err);
-      setError("图片识别失败，请重试。");
+      console.error("图片识别失败，详细错误:", err);
+      setError(`图片识别失败: ${err instanceof Error ? err.message : '未知错误'}`);
     } finally {
       setIsIdentifying(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
@@ -131,8 +131,8 @@ export default function App() {
       const result = await generateMealPlan(ingredients, cuisineStyle, cookingTime);
       setMealPlan(result);
     } catch (err: any) {
-      console.error(err);
-      setError("大厨把菜烧糊了！请重试。");
+      console.error("生成菜单失败，详细错误:", err);
+      setError(`大厨把菜烧糊了！错误: ${err instanceof Error ? err.message : '未知错误'}`);
     } finally {
       setIsCooking(false);
     }
