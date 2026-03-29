@@ -4,7 +4,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 // In AI Studio it uses process.env.GEMINI_API_KEY
 // For Vercel/Vite deployment it uses import.meta.env.VITE_GEMINI_API_KEY
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-console.log("VITE_GEMINI_API_KEY loaded:", apiKey ? `...${apiKey.slice(-4)}` : "Not Found");
+
 
 if (!apiKey) {
   console.error("Gemini API Key is missing! Please set VITE_GEMINI_API_KEY in your environment variables.");
@@ -49,7 +49,7 @@ export async function generateMealPlan(
   请以JSON格式返回这顿饭的安排。`;
 
   const response = await ai.models.generateContent({
-    model: "gemini-1.5-flash-latest",
+    model: "gemini-3.1-flash-lite-preview",
     contents: prompt,
     config: {
       responseMimeType: "application/json",
@@ -105,7 +105,7 @@ export async function identifyIngredientsFromImage(base64Data: string, mimeType:
   只返回JSON数组，不要包含任何其他说明文字。`;
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.1-flash-lite-preview",
     contents: {
       parts: [
         { text: prompt },
